@@ -57,19 +57,111 @@ kk['data_nascimento'] = '10/11/2018';
 */
 
 void enableOptions({bool viewEmail, bool viewProcesso}) {
+  print(viewEmail); 
+}
+
+String fale(String para, String msg, [String assunto]) {
+  String result = "${para}: ${msg}";
+  if (assunto != null) {
+    result = "${result}, sobre ${assunto}";
+  }
+  return result;
+}
+
+void funcComListeMap({List<int> idade = const[1, 2, 3], Map<String, String> pessoa = const {'Lucas': 'M', 'Maria': 'F', 'Jucá': 'F'}}) {
+  print("Lista: ${idade}");
+  print("Map: ${pessoa}");
+  
+}
+
+Function somaComInicio(num numInicial) {
+  return (num i) => i + numInicial;
+}
+
+void foo() {}
+
+class Ax {
+  static void bar() {}
+  void bar() {}
+}
+
+//Getter e Setter
+class ABCx {
+  num ax, bx, cx;
+
+  ABCx(this.ax, this.bx, this.cx);
+
+  num get ax => ax;
+
+  set ax(num val) => ax = val; 
 
 }
 
-//tudo inicia pelo main
-main() {
-  var numero = 10000;
 
+abstract class Animal {
+  void andar();
+  void correr();
+}
+
+class Cachorro extends Animal {
+  void andar() {
+    print('O cachorro anda');
+  }
+}
+
+class Gato extends Animal {
+  void andar() {
+    print('o gato mia'); 
+  }
+}
+
+//Class base
+class Pessoa {
+  final _nome;
+  Pessoa(this._nome);
+  String elogiar(String elogio) => "Olá, ${_nome}. ${elogio}";
+}
+
+//Implementa pessoa, hidrata estruturas, defini metodos  
+class Mario implements Pessoa {
+  get _nome => 'Mario';
+  String elogiar(String elogio) => "Oi, ${_nome}, ${elogio}";
+}
+
+//Uma função boba, parece uma factory
+String elogiarAlguem(Pessoa pes, String elo) => pes.elogiar(elo);
+
+//Tudo inicia pelo main
+void main(List<String> args) {
+
+  Pessoa objMario = new Pessoa('Mario');
+  print(objMario.elogiar('Você é um bom menino'));
+
+  print(elogiarAlguem(new Pessoa('Julia'), 'Vc cozinha muito bem'));
+  print(elogiarAlguem(new Mario(), 'És um doido'));
+  
+  Cachorro objCachorro = new Cachorro();
+  objCachorro.andar();
+
+  Gato objGato = new Gato();
+  objGato.andar();
+
+  ABCx objAbc = new ABCx(10, 20, 30);
+
+  print(objAbc.ax);
+
+  objAbc.ax = 40;
+
+  print(objAbc.ax);
+
+  print(args);
+
+  var numero = 10000;
   printNumber(numero);
 
   print(mercados);
 
   var x = int.parse('1123123281');
-
   print(x);
 
   assert(x == 112312321);
@@ -78,6 +170,24 @@ main() {
 
   //print(kk);
 
-  enableOptions(false, true);
+  enableOptions(viewProcesso: true, viewEmail: false);
+
+  String frase1 = fale('Lucas', 'Agora vai', 'Carro');
+  print(frase1);
+
+  String frase2 = fale('Eduardo', 'Compre alguns ovos');
+  print(frase2);
+  
+  funcComListeMap();
+
+  //retorna funcoes
+  Function somaCom10 = somaComInicio(10);
+  print(somaCom10(5));
+
+  Function somaCom15 = somaComInicio(15);
+  print(somaCom15(30));
+
+
+  
 
 }
