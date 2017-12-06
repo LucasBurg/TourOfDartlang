@@ -38,6 +38,26 @@ isNobleX(a) {
 
 bool isNobleXX(int a) => _g[a] != null;
 
+//Maps são um objeto composto por chave valor
+var k = {
+  'cep': 123123123,
+  'nome': 'Lucas Daniel Burg Mota',
+  'data_nascimento': '05/10/1994'
+};
+
+
+
+
+/**** 
+
+Não funcionou para versão 1.x
+---------------------
+
+var kk = new Map();
+kk['cep'] = '8123672163261';
+kk['nome'] = 'Maria de Souza';
+kk['data_nascimento'] = '10/11/2018';
+*/
 
 //tudo inicia pelo main
 main() {
@@ -47,8 +67,14 @@ main() {
 
   print(mercados);
 
-  var x = int.parse('112312321');
+  var x = int.parse('1123123281');
 
   print(x);
+
+  assert(x == 112312321);
+
+  print(k);
+
+  print(k2);
 
 }
