@@ -1,4 +1,6 @@
 
+import 'lib/anzol.dart';
+
 const km = 1000;
 
 const double gas = 123.3092;
@@ -84,6 +86,13 @@ class Ax {
   static void bar() {}
   void bar() {}
 }
+
+
+@Anzol('Vermelhor', 10)
+class Linha {
+
+}
+
 
 //Getter e Setter
 class ABCx {
@@ -180,12 +189,19 @@ class KitChurras extends Churras with TabuaDeCortarCarne, Sal, FacaSimples {
 
 }
 
-
+/// Um comentário doido
+/// 
+/// 
 
 
 
 //Tudo inicia pelo main
 void main(List<String> args) {
+
+  Linha objLinha = new Linha();
+
+  print(objLinha);
+
 
   print(Peixes.galhudo.index);
   print(Peixes.pampo.index);
