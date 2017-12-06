@@ -45,9 +45,6 @@ var k = {
   'data_nascimento': '05/10/1994'
 };
 
-
-
-
 /**** 
 
 Não funcionou para versão 1.x
@@ -58,6 +55,10 @@ kk['cep'] = '8123672163261';
 kk['nome'] = 'Maria de Souza';
 kk['data_nascimento'] = '10/11/2018';
 */
+
+void enableOptions({bool viewEmail, bool viewProcesso}) {
+
+}
 
 //tudo inicia pelo main
 main() {
@@ -76,5 +77,7 @@ main() {
   print(k);
 
   //print(kk);
+
+  enableOptions(false, true);
 
 }
