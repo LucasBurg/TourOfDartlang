@@ -54,6 +54,7 @@ var kk = new Map();
 kk['cep'] = '8123672163261';
 kk['nome'] = 'Maria de Souza';
 kk['data_nascimento'] = '10/11/2018';
+
 */
 
 void enableOptions({bool viewEmail, bool viewProcesso}) {
@@ -71,7 +72,6 @@ String fale(String para, String msg, [String assunto]) {
 void funcComListeMap({List<int> idade = const[1, 2, 3], Map<String, String> pessoa = const {'Lucas': 'M', 'Maria': 'F', 'Jucá': 'F'}}) {
   print("Lista: ${idade}");
   print("Map: ${pessoa}");
-  
 }
 
 Function somaComInicio(num numInicial) {
@@ -88,15 +88,10 @@ class Ax {
 //Getter e Setter
 class ABCx {
   num ax, bx, cx;
-
   ABCx(this.ax, this.bx, this.cx);
-
   num get ax => ax;
-
   set ax(num val) => ax = val; 
-
 }
-
 
 abstract class Animal {
   void andar();
@@ -131,8 +126,72 @@ class Mario implements Pessoa {
 //Uma função boba, parece uma factory
 String elogiarAlguem(Pessoa pes, String elo) => pes.elogiar(elo);
 
+enum Peixes {galhudo, pampo, robson}
+
+//Utilizando o conceito de mixins
+class Afiador {
+
+}
+
+class Lamina {
+
+}
+
+class Canivete extends Lamina {
+
+}
+
+class Faca extends Lamina with Afiador {
+
+}
+
+class FacaSimples 
+{
+
+}
+
+class TabuaDeCortarCarne {
+
+}
+
+class Sal {
+
+}
+
+class SalGrosso extends Sal {
+
+}
+
+class Churras {
+
+}
+
+/***** 
+
+Não funciona porque Faca é considerada uma class final, só é possivel utilizar classes simples
+----------------------------
+
+class KitChurras extends Churras with TabuaDeCortarCarne, Faca {
+
+}
+*/
+
+class KitChurras extends Churras with TabuaDeCortarCarne, Sal, FacaSimples {
+
+}
+
+
+
+
+
 //Tudo inicia pelo main
 void main(List<String> args) {
+
+  print(Peixes.galhudo.index);
+  print(Peixes.pampo.index);
+
+  List<Peixes> peixes = Peixes.values;
+  print(peixes);
 
   Pessoa objMario = new Pessoa('Mario');
   print(objMario.elogiar('Você é um bom menino'));
