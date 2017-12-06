@@ -75,6 +75,6 @@ main() {
 
   print(k);
 
-  print(k2);
+  //print(kk);
 
 }
